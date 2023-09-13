@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CampaignRepository extends CrudRepository<CampaignEntity, Integer> {
-	@Query(value = "SELECT * FROM criteo.campaign " +
+	@Query(value = "SELECT * FROM campaign " +
 			"WHERE name = :name and " +
 			"start_date > CURRENT_DATE() - 10 " +
 			"ORDER BY bid " +
@@ -15,7 +15,7 @@ public interface CampaignRepository extends CrudRepository<CampaignEntity, Integ
 			nativeQuery = true)
 	CampaignEntity getHighestBidProductFromActiveCategory(String name);
 
-	@Query(value = "SELECT * FROM criteo.campaign " +
+	@Query(value = "SELECT * FROM campaign " +
 			"ORDER BY bid " +
 			"LIMIT 1",
 			nativeQuery = true)

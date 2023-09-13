@@ -13,10 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class CampaignEntity {
-	@NonNull
-	@OneToMany(fetch = FetchType.EAGER,
-			cascade = CascadeType.ALL)
-	List<ProductEntity> productEntities;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -29,4 +25,8 @@ public class CampaignEntity {
 	@NonNull
 	@Column(name = "name")
 	private String name;
+	@NonNull
+	@OneToMany(fetch = FetchType.EAGER,
+			cascade = CascadeType.ALL)
+	List<ProductEntity> productEntities;
 }
