@@ -1,9 +1,6 @@
 package com.criteo.homework.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -18,15 +15,19 @@ public class ProductEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@NonNull
 	@Column(name = "title")
 	private String title;
 
+	@NonNull
 	@Column(name = "category")
 	private String category;
 
+	@NonNull
 	@Column(name = "price")
 	private String price;
 
+	@NonNull
 	@Column(name = "product_serial_number")
 	private String productSerialNumber;
 }
