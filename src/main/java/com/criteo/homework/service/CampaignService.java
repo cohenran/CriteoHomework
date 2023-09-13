@@ -16,11 +16,11 @@ public class CampaignService {
 	private ProductRepository productRepository;
 	@Resource
 	private CampaignRepository campaignRepository;
-	
+
 	public CampaignEntity createCampaign(String name, LocalDate startDate, List<String> productSerialNumber, Float bid) {
 		List<ProductEntity> productEntities = productRepository.findByProductSerialNumberIn(productSerialNumber);
 		CampaignEntity campaignEntity = new CampaignEntity(startDate, bid, name, productEntities);
-				
-		return campaignRepository.save(campaignEntity);		
+
+		return campaignRepository.save(campaignEntity);
 	}
 }
